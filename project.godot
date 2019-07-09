@@ -1,0 +1,25 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Reference",
+"class": "Tracery",
+"language": "GDScript",
+"path": "res://scripts/Tracery.gd"
+} ]
+_global_script_class_icons={
+"Tracery": ""
+}
+
+[application]
+
+config/name="GDTracery"
+run/main_scene="res://example/TraceryExample.tscn"
+config/icon="res://tracery-logo6.png"
