@@ -9,8 +9,8 @@ The examples as given in the [official tutorial page](http://www.crystalcodepala
 
 * Rules within rules
 * Modifiers 
- * universal/ base english ( *capitalize*, *pluralize*, *beespeak*, etc. )
- * custom modifiers
+  * universal/ base english ( *capitalize*, *pluralize*, *beespeak*, etc. )
+  * custom modifiers
 * Save data
 
 ## Issues and/or requests
