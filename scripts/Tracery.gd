@@ -1,6 +1,6 @@
 extends Reference
 
-class_name Tracery
+class_name Tracery, "res://thirdparty/tracery-logo6.png"
 		
 class Modifiers extends Reference:
 	
@@ -177,7 +177,7 @@ class Grammar extends Reference:
 			var matchName = matchValue.replace( "#", "" )
 			
 			# Remove the save symbols
-			matchName = _saveSymbolRegex.sub( matchName, "" )
+			matchName = _saveSymbolRegex.sub( matchName, "", true )
 			
 			# Take match name until the first '.' if it exists
 			var dotIndex = matchName.find( "." )
@@ -220,18 +220,16 @@ class Grammar extends Reference:
 			
 			var save = matchValue.replace( "[", "" ).replace( "]", "" )
 			
-			var colonIndex = save.find( ":" )
-			if colonIndex == -1:
-				flatten( "#{" + save + "}#" )
-				continue
-				
 			var saveSplit = save.split(":")
-			
-			var name = saveSplit[0]
-			
-			var data = flatten( saveSplit[1] )
-			
-			_saveData[ name ] = data
+				
+			if saveSplit.length() == 2:
+				var name = saveSplit[0]
+				var data = flatten( saveSplit[1] )
+				_saveData[ name ] = data
+			else:
+				var name = save
+				var data = flatten( "#" + save + "#" )
+				_saveData[ name ] = data
 				
 	func _getModifiers( symbol : String ) -> Array:
 		var modifiers = symbol.replace( "#", "" ).split( "." )
