@@ -1,6 +1,6 @@
 extends Reference
 
-class_name Tracery, "res://thirdparty/tracery-logo6.png"
+class_name Tracery
 		
 class Modifiers extends Reference:
 	
@@ -222,7 +222,7 @@ class Grammar extends Reference:
 			
 			var saveSplit = save.split(":")
 				
-			if saveSplit.length() == 2:
+			if saveSplit.size() == 2:
 				var name = saveSplit[0]
 				var data = flatten( saveSplit[1] )
 				_saveData[ name ] = data
