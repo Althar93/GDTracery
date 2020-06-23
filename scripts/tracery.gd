@@ -123,7 +123,7 @@ class UniversalModifiers extends Modifiers:
 			
 			
 		match last_character:
-			"y": 
+			"y":
 				# rays, convoys
 				if _is_consonant( second_to_last_character ):
 					return string.substr( 0, string.length() - 1 ) + "ied" + rest
