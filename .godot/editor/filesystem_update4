@@ -1,0 +1,5 @@
+res://example/tracery_example.tscn
+res://LICENSE.txt
+res://README.md
+res://scripts/tracery.gd
+res://example/tracery_example.gd

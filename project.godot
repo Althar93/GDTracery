@@ -6,20 +6,11 @@
 ;   [section] ; section goes between []
 ;   param=value ; assign values to parameters
 
-config_version=4
-
-_global_script_classes=[ {
-"base": "Reference",
-"class": "Tracery",
-"language": "GDScript",
-"path": "res://scripts/tracery.gd"
-} ]
-_global_script_class_icons={
-"Tracery": ""
-}
+config_version=5
 
 [application]
 
 config/name="GDTracery"
 run/main_scene="res://example/tracery_example.tscn"
+config/features=PackedStringArray("4.6")
 config/icon="res://tracery-logo6.png"

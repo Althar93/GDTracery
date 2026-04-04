@@ -1,8 +1,8 @@
 class_name Tracery
-extends Reference
+extends RefCounted
 		
 		
-class Modifiers extends Reference:
+class Modifiers extends RefCounted:
 	
 	
 	static func _is_consonant( character : String ) -> bool:
@@ -137,10 +137,10 @@ class UniversalModifiers extends Modifiers:
 				
 				
 # Main grammar
-class Grammar extends Reference:
+class Grammar extends RefCounted:
 	
 	
-	var rng : RandomNumberGenerator = null setget set_rng, get_rng # The random number generator
+	var rng : RandomNumberGenerator = null: get = get_rng, set = set_rng # The random number generator
 	
 	var _modifier_lookup : Dictionary = {} # Modifier function table
 	var _rules : Dictionary = {} # The rules
@@ -177,8 +177,8 @@ class Grammar extends Reference:
 			_modifier_lookup[ k ] = modifiers[ k ]
 			
 			
-	func set_rng( rng : RandomNumberGenerator ) -> void:
-		rng = rng
+	func set_rng( in_rng : RandomNumberGenerator ) -> void:
+		rng = in_rng
 		
 		
 	func get_rng() -> RandomNumberGenerator:
@@ -188,7 +188,7 @@ class Grammar extends Reference:
 	func flatten( rule : String ) -> String:
 		var expansion_matches = _expansion_regex.search_all( rule )
 		
-		if expansion_matches.empty():
+		if expansion_matches.is_empty():
 			_resolve_save_symbols( rule )
 			
 		for match_result in expansion_matches:
@@ -227,13 +227,15 @@ class Grammar extends Reference:
 				
 				resolved = _apply_modifiers( resolved, modifiers )
 				
-				rule = rule.replace( match_value, resolved )
+				#rule = rule.replace( match_value, resolved )
+				rule = _replace_first( rule, match_value, resolved )
 			else:
 				var resolved = flatten( selected_rule )
 				
 				resolved = _apply_modifiers( resolved, modifiers )
 				
-				rule = rule.replace( match_value, resolved )
+				#rule = rule.replace( match_value, resolved )
+				rule = _replace_first( rule, match_value, resolved )
 				
 		# Done
 		return rule
@@ -258,10 +260,12 @@ class Grammar extends Reference:
 				_save_data[ name ] = data
 				
 				
-	func _get_modifiers( symbol : String ) -> Array:
+	func _get_modifiers( symbol : String ) -> Array[String]:
+		var typed_modifiers : Array[String] = []
 		var modifiers = symbol.replace( "#", "" ).split( "." )
-		modifiers.remove( 0 )
-		return modifiers
+		typed_modifiers.assign(modifiers)
+		typed_modifiers.remove_at( 0 )
+		return typed_modifiers
 		
 		
 	func _apply_modifiers( resolved : String, modifiers : Array ) -> String:
@@ -271,3 +275,15 @@ class Grammar extends Reference:
 				var function = _modifier_lookup[ m ][ 1 ]
 				resolved = object.call( function, resolved )
 		return resolved
+		
+	
+	# As suggested by tsmaster
+	func _replace_first( string : String, what : String, forwhat : String ) -> String:
+		var what_index = string.find( what )
+		if what_index > -1:
+			var before = string.substr( 0, what_index )
+			var after  = string.substr( what_index + what.length(), string.length() - what.length() )
+			return before + forwhat + after
+		else:
+			return string
+			

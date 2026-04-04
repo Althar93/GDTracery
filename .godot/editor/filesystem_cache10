@@ -1,0 +1,10 @@
+63f7b34db8d8cdea90c76aacccf841ec
+::res://::1775303433
+LICENSE.txt::TextFile::-1::1592895943::0::1::::<><><>0<>0<><>::
+README.md::TextFile::-1::1592895943::0::1::::<><><>0<>0<><>::
+tracery-logo6.png::CompressedTexture2D::9109073815022327663::1562507496::1775303433::1::::<><><>0<>0<>2941af2b23530a1b4baf9d00417cd826<>res://.godot/imported/tracery-logo6.png-556b9097907448e0d5e9f646973d81da.ctex::
+::res://example/::1775303385
+tracery_example.gd::GDScript::1727285446059807302::1775303418::0::1::::<>Node<><>0<>0<><>::
+tracery_example.tscn::PackedScene::-1::1775303418::0::1::::<><><>0<>0<><>::res://example/tracery_example.gd
+::res://scripts/::1592895943
+tracery.gd::GDScript::295543418876225369::1775303418::0::1::::Tracery<>RefCounted<><>0<>0<><>::

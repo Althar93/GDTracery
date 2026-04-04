@@ -1,5 +1,5 @@
 # GDTracery
-A GDscript port of **Kate Compton's** [Tracery]( http://tracery.io/ ) for Godot Engine 3.1.
+A GDscript port of **Kate Compton's** [Tracery]( http://tracery.io/ ) for Godot Engine 4.6.
 
 The implementation was itself heavily based off **josh-perry's** [Tracery.Net](https://github.com/josh-perry/Tracery.Net) implementation with some style changes to better fit with GDscript.
 
@@ -18,5 +18,3 @@ The examples as given in the [official tutorial page](http://www.crystalcodepala
 For any requests and/or issues you may find, please use the dedicated [issues](https://github.com/Althar93/GDTracery/issues) page.
 
 **Note:** *the port aims to be as close as possible to the original implementation & will as a result not include additional features that do not form part of Tracery.*
-
-
