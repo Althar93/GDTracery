@@ -39,7 +39,7 @@ func _example_1( rng : RandomNumberGenerator ) -> void :
 		print(sentence)
 		
 
-func _example_2(rng : RandomNumberGenerator) -> void :
+func _example_2( rng : RandomNumberGenerator ) -> void :
 	print("Example 2 :")
 	
 	# A second gramma examplle

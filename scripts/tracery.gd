@@ -226,15 +226,13 @@ class Grammar extends RefCounted:
 				var resolved = flatten( chosen )
 				
 				resolved = _apply_modifiers( resolved, modifiers )
-				
-				#rule = rule.replace( match_value, resolved )
+		
 				rule = _replace_first( rule, match_value, resolved )
 			else:
 				var resolved = flatten( selected_rule )
 				
 				resolved = _apply_modifiers( resolved, modifiers )
-				
-				#rule = rule.replace( match_value, resolved )
+
 				rule = _replace_first( rule, match_value, resolved )
 				
 		# Done
